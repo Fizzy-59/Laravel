@@ -8,6 +8,12 @@ class PagesController extends Controller
 {
     public function about()
     {
-        return 'A propos de moi';
+
+        // On veut faire passer une varibale à notre vue
+        $title = "A propos";
+
+        // On va retourner notre vue perso créée avec Blade, on second paramètre on envoi la varibale
+        return view('pages/about', ['title' => $title]);
+
     }
 }

@@ -68,3 +68,4 @@ Route::get('first_controller/{name}', 'FirstController@index_param');
 // Création d'une route nommée vers un controller utilisant une fonction de celui ci
 // on rajoute as et uses dans un tableau pour faire le lien
 Route::get('a-propos', ['as' => 'about', 'uses' => 'PagesController@about']);
+
