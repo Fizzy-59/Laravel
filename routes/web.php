@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () 
+    {
     return view('welcome');
-});
+    });
+
+// mène a la page du raccourciceur 
+Route::get('links/create', 'LinksController@create');
+
+// mène à la page qui traite après avoir appuyé sur le bouton
+Route::post('links/create', 'LinksController@store');
+
+// Capture du sytème d'url
+Route::get('/r/{id}', 'LinksController@show')->where('id', '[0-9]+');
