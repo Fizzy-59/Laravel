@@ -15,10 +15,15 @@ use Illuminate\Http\Request;
 */
 use App\Person;
 
-// Route menant à l'id d'une personne via son controller
+// On cré un préfix de route v1 pour indiquer facielement la version de l'api qu'on utilise
+Route::prefix('v1')->group(function()
+{
+    // Route menant à l'id d'une personne via son controller
 // En utilisant ::apiRessource on a pas besoind e renseigner l'argument à la toute et la fonction lié au controlleur
 // Ca crée automatiquement toutes les routes possible : get/put/patch/post/delete ...
-Route::apiResource('/person', 'PersonController');
+Route::apiResource('/person', 'Api\v1\PersonController');
+});
+
 
 
 // Nous n'utiliserons pas cette route pour le tuto
