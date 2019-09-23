@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -12,17 +13,13 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+use App\Person;
 
-Route::get('/person', function()
-{
-    $person = 
-    [
-        'firstname' => 'Romain',
-        'last_name' => 'Devillez',
-    ];
+// Route menant à l'id d'une personne via son controller
+// En utilisant ::apiRessource on a pas besoind e renseigner l'argument à la toute et la fonction lié au controlleur
+// Ca crée automatiquement toutes les routes possible : get/put/patch/post/delete ...
+Route::apiResource('/person', 'PersonController');
 
-    return $person;
-});
 
 // Nous n'utiliserons pas cette route pour le tuto
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
